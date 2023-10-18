@@ -1,6 +1,7 @@
 package backend.project;
 
 import backend.project.repository.JdbcMemberRepository;
+import backend.project.repository.JdbcTemplateMemberRepository;
 import backend.project.repository.MemberRepository;
 import backend.project.repository.MemoryMemberRepository;
 import backend.project.service.MemberService;
@@ -27,6 +28,7 @@ public class SpringConfig {
     @Bean
     public MemberRepository memberRepository() {
 //        return new MemoryMemberRepository();
-        return new JdbcMemberRepository(dataSource);
+//        return new JdbcMemberRepository(dataSource);
+        return new JdbcTemplateMemberRepository(dataSource);
     }
 }

@@ -1,5 +1,6 @@
 package backend.project;
 
+import backend.project.aop.TimeTraceAop;
 import backend.project.repository.*;
 import backend.project.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;

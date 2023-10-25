@@ -1,6 +1,6 @@
-package backend.project.repository;
+package project.back.repository;
 
-import backend.project.entity.MemberEntity;
+import project.back.entity.MemberEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MemberRepository extends JpaRepository<MemberEntity, Long> {

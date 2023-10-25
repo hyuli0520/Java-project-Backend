@@ -1,4 +1,4 @@
-package backend.project.dto;
+package project.back.dto;
 
 import lombok.*;
 

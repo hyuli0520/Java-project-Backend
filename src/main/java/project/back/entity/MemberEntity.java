@@ -1,4 +1,4 @@
-package backend.project.entity;
+package project.back.entity;
 
 import lombok.Getter;
 import lombok.Setter;

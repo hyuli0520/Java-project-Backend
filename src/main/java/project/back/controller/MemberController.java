@@ -1,7 +1,7 @@
-package backend.project.controller;
+package project.back.controller;
 
-import backend.project.dto.MemberDTO;
-import backend.project.service.MemberService;
+import project.back.dto.MemberDTO;
+import project.back.service.MemberService;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

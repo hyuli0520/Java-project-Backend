@@ -1,7 +1,7 @@
-package backend.project.service;
+package project.back.service;
 
-import backend.project.dto.MemberDTO;
-import backend.project.repository.MemberRepository;
+import project.back.dto.MemberDTO;
+import project.back.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

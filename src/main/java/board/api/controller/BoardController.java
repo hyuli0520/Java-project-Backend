@@ -2,6 +2,7 @@ package board.api.controller;
 
 import board.api.dto.request.BoardWriteRequest;
 import board.api.dto.response.BoardGetResponse;
+import board.api.dto.response.BoardInfoResponse;
 import board.api.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +25,11 @@ public class BoardController {
     @GetMapping("/get")
     public List<BoardGetResponse> get () {
         return boardService.get();
+    }
+
+    @GetMapping("/info/{id}")
+    public BoardInfoResponse info(@PathVariable("id") Long id) {
+        return boardService.info(id);
     }
 
     @GetMapping("/test")

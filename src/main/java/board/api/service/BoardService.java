@@ -2,10 +2,10 @@ package board.api.service;
 
 import board.api.dto.request.BoardWriteRequest;
 import board.api.dto.response.BoardGetResponse;
+import board.api.dto.response.BoardInfoResponse;
 import board.api.entity.Board;
 import board.api.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -25,10 +25,10 @@ public class BoardService {
     }
 
     public List<BoardGetResponse> get() {
-        List<Board> boardList = boardRepository.findAll();
+        List<Board> boardLists = boardRepository.findAll();
         List<BoardGetResponse> boardGetList = new ArrayList<BoardGetResponse>();
 
-        for(Board board : boardList) {
+        for(Board board : boardLists) {
             boardGetList.add(new BoardGetResponse(
                     board.getId(),
                     board.getTitle(),
@@ -36,5 +36,15 @@ public class BoardService {
             ));
         }
         return boardGetList;
+    }
+
+    public BoardInfoResponse info(Long id) {
+        Board boardInfo = boardRepository.findById(id)
+                .orElseThrow(IllegalStateException::new);
+        return new BoardInfoResponse(
+                boardInfo.getId(),
+                boardInfo.getTitle(),
+                boardInfo.getContent(),
+                boardInfo.getLikes());
     }
 }

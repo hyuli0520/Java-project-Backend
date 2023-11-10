@@ -47,4 +47,11 @@ public class BoardService {
                 boardInfo.getContent(),
                 boardInfo.getLikes());
     }
+
+    public void delete(Long id) {
+        Board boardDelete = boardRepository.findById(id)
+                .orElseThrow(IllegalStateException::new);
+
+        boardRepository.delete(boardDelete);
+    }
 }

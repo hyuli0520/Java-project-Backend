@@ -37,6 +37,10 @@ public class BoardController {
         boardService.delete(id);
     }
 
+    @PutMapping("/update")
+    public void update(@RequestParam Long id, @RequestBody BoardUpdateRequest boardUpdateRequest) {
+        boardService.update(id, boardUpdateRequest);
+    }
     @GetMapping("/test")
     public String test() {
         return "test";

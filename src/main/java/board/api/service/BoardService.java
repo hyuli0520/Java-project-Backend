@@ -1,5 +1,6 @@
 package board.api.service;
 
+import board.api.dto.request.BoardUpdateRequest;
 import board.api.dto.request.BoardWriteRequest;
 import board.api.dto.response.BoardGetResponse;
 import board.api.dto.response.BoardInfoResponse;
@@ -54,4 +55,12 @@ public class BoardService {
 
         boardRepository.delete(boardDelete);
     }
+
+    public void update(Long id,BoardUpdateRequest boardUpdateRequest) {
+        Board boardUpdate = boardRepository.findById(id)
+                .orElseThrow(IllegalStateException::new);
+        boardUpdate.update(boardUpdateRequest.getTitle(), boardUpdateRequest.getContent());
+        boardRepository.save(boardUpdate);
+    }
+
 }

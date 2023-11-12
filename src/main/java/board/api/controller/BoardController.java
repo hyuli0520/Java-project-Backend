@@ -29,13 +29,13 @@ public class BoardController {
         return boardService.get();
     }
 
-    @GetMapping("/info/{id}")
-    public BoardInfoResponse info(@PathVariable("id") Long id) {
+    @GetMapping("/info")
+    public BoardInfoResponse info(@RequestParam Long id) {
         return boardService.info(id);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public void delete(@PathVariable("id") Long id) {
+    @DeleteMapping("/delete")
+    public void delete(@RequestParam Long id) {
         boardService.delete(id);
     }
 

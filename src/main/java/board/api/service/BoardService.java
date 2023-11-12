@@ -63,4 +63,10 @@ public class BoardService {
         boardRepository.save(boardUpdate);
     }
 
+    public void likes(Long id) {
+        Board boardLikes = boardRepository.findById(id)
+                .orElseThrow(IllegalStateException::new);
+        boardLikes.addLikes();
+        boardRepository.save(boardLikes);
+    }
 }

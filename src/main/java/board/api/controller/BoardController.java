@@ -1,5 +1,7 @@
 package board.api.controller;
 
+import board.api.dto.request.BoardLikesRequest;
+import board.api.dto.request.BoardUpdateRequest;
 import board.api.dto.request.BoardWriteRequest;
 import board.api.dto.response.BoardGetResponse;
 import board.api.dto.response.BoardInfoResponse;
@@ -41,6 +43,14 @@ public class BoardController {
     public void update(@RequestParam Long id, @RequestBody BoardUpdateRequest boardUpdateRequest) {
         boardService.update(id, boardUpdateRequest);
     }
+
+    @PostMapping("/likes")
+    public void likes(@RequestBody BoardLikesRequest boardLikesRequest) {
+        boardService.likes(boardLikesRequest.getBoardId());
+    }
+
+    @PostMapping("/post/commend")
+
     @GetMapping("/test")
     public String test() {
         return "test";

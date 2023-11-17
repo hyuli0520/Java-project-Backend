@@ -11,6 +11,4 @@ public class BoardGetResponse {
     private final Long id;
     private final String title;
     private final int likes;
-
-
 }

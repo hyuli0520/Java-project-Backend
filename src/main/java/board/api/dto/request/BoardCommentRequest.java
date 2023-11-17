@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class BoardUpdateRequest {
-    private String title;
+public class BoardCommentRequest {
     private String content;
+    private String authorName;
 }

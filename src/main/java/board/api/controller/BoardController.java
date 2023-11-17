@@ -1,10 +1,13 @@
 package board.api.controller;
 
+import board.api.dto.request.BoardCommentRequest;
 import board.api.dto.request.BoardLikesRequest;
 import board.api.dto.request.BoardUpdateRequest;
 import board.api.dto.request.BoardWriteRequest;
+import board.api.dto.response.BoardGetCommentResponse;
 import board.api.dto.response.BoardGetResponse;
 import board.api.dto.response.BoardInfoResponse;
+import board.api.entity.BoardComment;
 import board.api.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +21,6 @@ import java.util.List;
 public class BoardController {
     private final BoardService boardService;
 
-    // http://localhost:8082/api/post?id=
     @PostMapping("/post")
     public void post (@RequestBody BoardWriteRequest boardWriteRequest) {
         boardService.write(boardWriteRequest);
@@ -39,6 +41,7 @@ public class BoardController {
         boardService.delete(id);
     }
 
+    // /update?id=
     @PutMapping("/update")
     public void update(@RequestParam Long id, @RequestBody BoardUpdateRequest boardUpdateRequest) {
         boardService.update(id, boardUpdateRequest);
@@ -49,7 +52,21 @@ public class BoardController {
         boardService.likes(boardLikesRequest.getBoardId());
     }
 
-    @PostMapping("/post/commend")
+    @PostMapping("/post/comment")
+    public void comment(@RequestParam Long id, @RequestBody BoardCommentRequest boardCommentRequest) {
+        boardService.comment(id, boardCommentRequest);
+    }
+
+    @GetMapping("/get/comment")
+    public List<BoardGetCommentResponse> getComment(@RequestParam Long id) {
+        return boardService.getComment(id);
+    }
+
+//    @GetMapping("/get/comment")
+//    public void getComment(@RequestParam Long boardId) {
+//        boardService.getComment(boardId);
+//    }
+
 
     @GetMapping("/test")
     public String test() {

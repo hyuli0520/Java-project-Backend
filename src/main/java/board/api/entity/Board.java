@@ -3,6 +3,8 @@ package board.api.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -23,6 +25,9 @@ public class Board {
 
     @Column
     private int likes;
+
+    @ManyToOne
+    private BoardComment boardComment;
 
     public void update(String title, String content) {
         this.title = title;

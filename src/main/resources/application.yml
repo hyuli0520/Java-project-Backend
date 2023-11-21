@@ -1,7 +1,12 @@
 server:
-  port: 8082
-  servlet:
-    context-path:
+  name: java-project
+  app: java@17
+  options:
+    ports: 8080
+  context:
+    git:
+      url: https://github.com/hyuli0520/Java-project-Backend.git
+      branch: master
 
 # database 연동 설정
 spring:

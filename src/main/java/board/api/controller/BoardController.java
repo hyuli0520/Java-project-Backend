@@ -7,7 +7,6 @@ import board.api.dto.request.BoardWriteRequest;
 import board.api.dto.response.BoardGetCommentResponse;
 import board.api.dto.response.BoardGetResponse;
 import board.api.dto.response.BoardInfoResponse;
-import board.api.entity.BoardComment;
 import board.api.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -57,19 +56,9 @@ public class BoardController {
         boardService.comment(id, boardCommentRequest);
     }
 
+
     @GetMapping("/get/comment")
     public List<BoardGetCommentResponse> getComment(@RequestParam Long id) {
         return boardService.getComment(id);
-    }
-
-//    @GetMapping("/get/comment")
-//    public void getComment(@RequestParam Long boardId) {
-//        boardService.getComment(boardId);
-//    }
-
-
-    @GetMapping("/test")
-    public String test() {
-        return "test";
     }
 }

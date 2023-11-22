@@ -1,22 +1,17 @@
 server:
-  name: java-project
-  app: java@17
-  options:
-    ports: 8080
-  context:
-    git:
-      url: https://github.com/hyuli0520/Java-project-Backend.git
-      branch: master
+  port: 8080
+  servlet:
+    context-path:
 
 # database 연동 설정
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
 #   각자 PC에 만들어 놓은 Database이름을 써야 한다
-    url: jdbc:mysql://localhost:3306/db_giN?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    url: ${DB_URL}
 #   mysql에 생성한 사용자 계정 정보를 써야 한다
     username: user_giN
-    password: 1234
+    password: ${DB_PASSWORD}
   thymeleaf:
     cache: false
 

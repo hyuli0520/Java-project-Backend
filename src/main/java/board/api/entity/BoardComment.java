@@ -6,7 +6,6 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Data
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor

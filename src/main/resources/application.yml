@@ -1,23 +1,23 @@
 server:
-  port: 8080
+  port: 8085
   servlet:
     context-path:
 
 # database 연동 설정
 spring:
   datasource:
-    driver-class-name: org.mariadb.jdbc.Driver #com.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
 #   각자 PC에 만들어 놓은 Database이름을 써야 한다
-    url: jdbc:mariadb://svc.sel5.cloudtype.app:31959/db_giN?characterEncoding=UTF-8&serverTimezone=UTC #jdbc:mysql://localhost:3306/db_giN?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/db_giN?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
 #   mysql에 생성한 사용자 계정 정보를 써야 한다
-    username: root #user_giN
-    password: ${DB_password}
+    username: user_giN #user_giN
+    password: 1234
   thymeleaf:
     cache: false
 
 # spring data jpa 설정
   jpa:
-    database-platform: org.hibernate.dialect.MariaDBDialect
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     open-in-view: false
     show-sql: true
     hibernate:
